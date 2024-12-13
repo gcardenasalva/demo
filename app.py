@@ -10,12 +10,12 @@ class Home(Resource):
 
 class ConvertTemp(Resource):
     def get(self):
-        # Get arguments from query parameters
+        # Get arguments from query parameters - adding more comments GCA
         temp = float(request.args.get('temp'))
         scale = request.args.get('scale').lower()
         target_scale = request.args.get('target_scale').lower()
 
-        # Perform temperature conversion
+        # Perform temperature conversion - adding more comments GCA
         converted_temp = self.convert_temperature(temp, scale, target_scale)
         
         if converted_temp is None:
@@ -24,7 +24,7 @@ class ConvertTemp(Resource):
         return {'converted_temp': converted_temp, 'target_scale': target_scale}
 
     def convert_temperature(self, temp, scale, target_scale):
-        # Conversion logic
+        # Conversion logic - adding more comments GCA
         if scale == target_scale:
             return temp
 
@@ -46,7 +46,7 @@ class ConvertTemp(Resource):
             elif target_scale == 'fahrenheit':
                 return (temp - 273.15) * 9/5 + 32
 
-        # If scales are invalid
+        # If scales are invalid - adding more comments GCA
         return None
 
 api.add_resource(Home, '/')
